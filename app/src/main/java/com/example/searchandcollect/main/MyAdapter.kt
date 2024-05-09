@@ -1,12 +1,15 @@
 package com.example.searchandcollect.main
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.searchandcollect.data.remote.ImageDocuments
 import com.example.searchandcollect.databinding.ItemRvBinding
-import com.example.searchandcollect.model.SearchModel
 
-class MyAdapter(private val dataList: List<SearchModel>) : RecyclerView.Adapter<MyAdapter.MainViewHolder>() {
+class MyAdapter(private var dataList: MutableList<ImageDocuments>) :
+    RecyclerView.Adapter<MyAdapter.MainViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         val binding = ItemRvBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -18,12 +21,27 @@ class MyAdapter(private val dataList: List<SearchModel>) : RecyclerView.Adapter<
         return dataList.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    fun setDataList(newDataList: MutableList<ImageDocuments>) {
+        dataList = newDataList
+        notifyDataSetChanged()
+    }
+
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
+        holder.bindItems(dataList[position])
 
     }
-    class MainViewHolder(private val binding: ItemRvBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bindItems(item: SearchModel) {
-            binding.sourceTextView.text = item.displaySiteName
+
+    class MainViewHolder(private val binding: ItemRvBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bindItems(item: ImageDocuments) {
+            Glide.with(itemView.context)// 이미지를 표시하기 위해 필요하다.
+                .load(item.thumbnailUrl)
+                .into(binding.ivProfile)
+            binding.tvSource.text = item.displaySiteName
+            binding.tvDatetime.text = item.dateTime.toString()
+
+
 //            sourceTextView
         }
     }

@@ -1,7 +1,4 @@
-package com.example.searchandcollect.model
-
-import java.util.Date
-
+package com.example.searchandcollect.data.database.model
 data class SearchModel(
     val thumbnailUrl: String,
     val displaySiteName: String,

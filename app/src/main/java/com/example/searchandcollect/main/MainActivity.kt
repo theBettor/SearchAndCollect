@@ -1,18 +1,13 @@
 package com.example.searchandcollect.main
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import com.example.searchandcollect.R
-import com.example.searchandcollect.data.DustDocuments
 import com.example.searchandcollect.databinding.ActivityMainBinding
-import com.example.searchandcollect.retrofit.NetWorkClient
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
