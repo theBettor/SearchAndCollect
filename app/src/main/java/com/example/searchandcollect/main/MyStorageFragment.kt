@@ -1,4 +1,4 @@
-package com.example.searchandcollect
+package com.example.searchandcollect.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.searchandcollect.databinding.FragmentMyStorageBinding
-import com.example.searchandcollect.databinding.FragmentSearchBinding
 
 class MyStorageFragment : Fragment() {
 

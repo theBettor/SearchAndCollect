@@ -1,9 +1,8 @@
-package com.example.searchandcollect
+package com.example.searchandcollect.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.searchandcollect.databinding.ItemRvBinding
 import com.example.searchandcollect.model.SearchModel
 

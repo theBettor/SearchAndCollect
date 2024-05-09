@@ -1,18 +1,23 @@
-package com.example.searchandcollect
+package com.example.searchandcollect.main
 
 import android.os.Bundle
-import android.view.View
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import com.example.searchandcollect.R
+import com.example.searchandcollect.data.DustDocuments
 import com.example.searchandcollect.databinding.ActivityMainBinding
-import com.google.android.material.tabs.TabLayoutMediator
+import com.example.searchandcollect.retrofit.NetWorkClient
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +29,6 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         // 뷰페이저는 사용하기 싫었다. 탭메인을 사용하기 위해 변수로 만들어주고,
         // 사용할 이미지들을 리스트 변수로 만들고 for문을 통해 index로 구현했다.
         val tabLayout = binding.tapMain
@@ -37,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             // 필요한 만큼 추가
         )
         setFragment(SearchFragment())
+
 
         for (i in tabIcons.indices) {
             val tab = tabLayout.getTabAt(i)
