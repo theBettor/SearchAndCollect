@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), DataListener {
         // 뷰페이저는 사용하기 싫었다. 탭메인을 사용하기 위해 변수로 만들어주고,
         // 사용할 이미지들을 리스트 변수로 만들고 for문을 통해 index로 구현했다.
         val tabLayout = binding.tapMain
-        val tabIcons = listOf(R.drawable.ic_launcher_background, R.drawable.ic_launcher_foreground)
+        val tabIcons = listOf(R.drawable.search, R.drawable.folder)
 
 
         val fragmentList = listOf(

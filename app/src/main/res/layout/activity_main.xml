@@ -21,8 +21,6 @@
         android:layout_height="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:tabIconTint="@color/black"
-        app:tabTextColor="@color/black"
         app:tabIndicatorHeight="0dp"
         app:tabIndicatorFullWidth="true"
         >
@@ -30,11 +28,11 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+             />
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+             />
     </com.google.android.material.tabs.TabLayout>
 
 
