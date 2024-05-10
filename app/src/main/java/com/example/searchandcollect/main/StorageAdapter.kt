@@ -1,6 +1,5 @@
 package com.example.searchandcollect.main
 
-import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,12 +9,17 @@ import com.bumptech.glide.Glide
 import com.example.searchandcollect.data.database.model.SearchModel
 import com.example.searchandcollect.databinding.ItemRvBinding
 
-class StorageAdapter(private var dataList: MutableList<SearchModel>,
-    ) : RecyclerView.Adapter<StorageAdapter.StorageViewHolder>(){
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StorageAdapter.StorageViewHolder {
+class StorageAdapter(
+    private var dataList: MutableList<SearchModel>,
+) : RecyclerView.Adapter<StorageAdapter.StorageViewHolder>() {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): StorageAdapter.StorageViewHolder {
         val binding = ItemRvBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return StorageViewHolder(binding)
     }
+
     override fun getItemCount(): Int {
         return dataList.size
     }
@@ -47,6 +51,5 @@ class StorageAdapter(private var dataList: MutableList<SearchModel>,
             }
         }
     }
-
 }
 

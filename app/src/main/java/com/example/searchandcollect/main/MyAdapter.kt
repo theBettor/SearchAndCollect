@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.searchandcollect.data.database.model.SearchModel
-import com.example.searchandcollect.data.remote.ImageDocuments
 import com.example.searchandcollect.databinding.ItemRvBinding
 
-class MyAdapter(private var dataList: MutableList<SearchModel>,
-    private val itemClickCallback: (SearchModel) -> Unit) :
+class MyAdapter(
+    private var dataList: MutableList<SearchModel>,
+    private val itemClickCallback: (SearchModel) -> Unit
+) :
     RecyclerView.Adapter<MyAdapter.MainViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
@@ -56,11 +57,6 @@ class MyAdapter(private var dataList: MutableList<SearchModel>,
                 // item click
                 itemClickCallback(item)
             }
-
-
-//            sourceTextView
         }
     }
-    // nested class : 외부 참조 불가, 메모리 누수 발생 확률이 적다
-    // inner : 외부(엄마, Adapter) 클래스를 참조 할 수 있음
 }

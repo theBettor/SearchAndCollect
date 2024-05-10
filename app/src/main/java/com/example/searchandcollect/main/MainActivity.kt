@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity(), DataListener {
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
     }
+
     private fun saveDataToSharedPreferences(data: String) {
         val pref = getSharedPreferences("pref", Context.MODE_PRIVATE)
         val editor = pref.edit()
