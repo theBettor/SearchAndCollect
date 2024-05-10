@@ -1,6 +1,8 @@
 package com.example.searchandcollect.main
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -9,7 +11,7 @@ import androidx.fragment.app.Fragment
 import com.example.searchandcollect.R
 import com.example.searchandcollect.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), DataListener {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         // 뷰페이저는 사용하기 싫었다. 탭메인을 사용하기 위해 변수로 만들어주고,
         // 사용할 이미지들을 리스트 변수로 만들고 for문을 통해 index로 구현했다.
         val tabLayout = binding.tapMain
@@ -61,5 +64,18 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.framelayout, fragment)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
+    }
+    private fun saveDataToSharedPreferences(data: String) {
+        val pref = getSharedPreferences("pref", Context.MODE_PRIVATE)
+        val editor = pref.edit()
+        editor.putString("search_text", data)
+        editor.apply()
+    }
+
+    override fun onDataSaved(data: String) {
+        // 이 메서드가 호출되면서 Fragment로부터 데이터를 전달받습니다.
+        // 여기서 데이터를 저장하거나 다른 작업을 수행할 수 있습니다.
+        saveDataToSharedPreferences(data)
+        Log.d("SharedPreferences", "Saved Data: $data")
     }
 }
